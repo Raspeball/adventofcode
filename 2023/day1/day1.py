@@ -1,4 +1,4 @@
-with open("day1-input.txt") as calories:
+with open('day1_input.txt') as calories:
     elf_calories = calories.readlines() # list of string elements
 
 # list massage
