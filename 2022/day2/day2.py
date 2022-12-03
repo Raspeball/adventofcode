@@ -59,7 +59,7 @@ def RPS_Result_Score_mod(res):
         pass
 
 
-    return tot_score
+    #return tot_score
 #
 #
 #
