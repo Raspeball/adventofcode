@@ -27,6 +27,7 @@ def CalcPriority(content):
     pri = priority_alph.index(CommonItemRucksack(content)) + 1
 
     return pri
+
 ### --- --- ###
 
 ### --- Part two --- ###
@@ -49,6 +50,7 @@ def ElfGrouping(sacks):
     
     return groups
 
+### --- --- ###
 
 ### --- --- ###
 # main
