@@ -1,6 +1,6 @@
 import itertools
 
-with open("day1_input.txt") as calories:
+with open(r"C:\Users\Lars Rikard\Documents\GitHub\adventofcode\2022\day1\day1_input.txt") as calories:
     elf_calories = [line.strip("\n") for line in calories]
 
 # grouping
@@ -11,7 +11,9 @@ calories_grouped = [list(gr) for key, gr in cal_groups if not key]
 # integers and sums
 elf_cal_sums = [sum(list(map(int, i))) for i in calories_grouped]
 
-cal_max = max(elf_cal_sums)
-elf = elf_cal_sums.index(cal_max)
+# sort
+elf_cal_sums.sort()
 
-print(cal_max, elf)
+top_three_elfs = elf_cal_sums[-1] + sum(elf_cal_sums[-3: -1])
+
+print(top_three_elfs)
