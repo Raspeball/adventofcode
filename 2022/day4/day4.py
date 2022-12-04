@@ -25,8 +25,8 @@ def GetPairRanges(pair_data):
 
 def IsFullyContained(pair_range):
     # pair_range is a list of lenght 2,
-    # where each element is a list of numbers
-    # i.e [[1,2,3], [4,5,6]]
+    # where each element is a range (list of numbers)
+    # i.e [[1, 8], [24, 91]]
 
     if len(pair_range[0]) >= len(pair_range[1]):
         return set(pair_range[1]).issubset(set(pair_range[0]))
@@ -35,18 +35,35 @@ def IsFullyContained(pair_range):
 
 ### --- --- ###
 
+### --- Part two --- ###
+
+def IsAnyOverLap(pair_range):
+    # pair_range is a list of lenght 2,
+    # where each element is a range (list of numbers)
+    # i.e [[1, 8], [24, 91]]
+    # returns False if there is overlap
+    # returns True if there is NO overlap
+    return set(pair_range[0]).isdisjoint(set(pair_range[1]))
+
+### --- --- ###
+
 # main
 def main():
-    full_range_id = GetPairRanges(section_ids)
+    full_range_ids = GetPairRanges(section_ids)
 
     fully_contained = 0
+    any_overlap = 0
 
-    for pair in full_range_id:
+    for pair in full_range_ids:
         if IsFullyContained(pair):
             fully_contained += 1
+        
+        if not IsAnyOverLap(pair):
+            any_overlap += 1
     
-    print(fully_contained)
-    #print(full_range_id)
+    print(f"Assignment pairs that are fully contained: {fully_contained}")
+    print(f"Assignment pairs that have any overlap: {any_overlap}")
+
 
 # run program
 if __name__ == "__main__":
