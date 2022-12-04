@@ -51,7 +51,7 @@ def ElfGrouping(sacks):
 
 ### --- --- ###
 
-### --- --- ###
+
 # main
 def main():
 
