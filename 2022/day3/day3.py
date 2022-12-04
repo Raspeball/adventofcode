@@ -3,7 +3,7 @@
 #
 
 # read day3 data
-with open(r"C:\Users\Lars Rikard\Documents\GitHub\adventofcode\2022\day3-input.txt") as data:
+with open(r"C:\Users\Lars Rikard\Documents\GitHub\adventofcode\2022\day3\day3-input.txt") as data:
     rucksacks = [line.strip("\n") for line in data]
 
 ### --- Part one --- ###
