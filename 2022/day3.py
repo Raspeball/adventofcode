@@ -38,7 +38,6 @@ def FindBadgePri(elf_group):
     for letter in elf_group[0]:
         if letter in elf_group[1] and letter in elf_group[2]:
             return priority_alph.index(letter) + 1
-    #
 
 # group elf rucksacks
 def ElfGrouping(sacks):
