@@ -6,7 +6,6 @@
 # signal is a string
 with open(r"C:\Users\Lars Rikard\Documents\GitHub\adventofcode\2022\day6\day6-input.txt") as data:
     signal = data.readlines()[0]
-    #section_ids = [(pair.strip("\n")).split(",") for pair in data]
 
 # function to detect first marker in signal string
 # det_option is option of packet or message
@@ -25,9 +24,6 @@ def DetectPacketOrMessage(signal_string, det_option):
         if len(set(section)) == uniq_length:
             return i + uniq_length
 
-
-
-
 # main
 def main():
     # Part one
@@ -41,6 +37,4 @@ def main():
 # run program
 if __name__ == "__main__":
     main()
-
-
 
