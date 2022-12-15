@@ -54,12 +54,34 @@ def RPS_Result_Score_mod(res):
     strat = "XYZ"
     #
     outcome_score = 0
+    #shape_score = strat.index(res[1]) + 1
     #
     if res[1] == "X": # i need to loose
-        pass
-
-
-    #return tot_score
+        if res[0] == "A":
+            shape = "C"
+        elif res[0] == "B":
+            shape = "A"
+        else:
+            shape = "B"
+        
+        outcome_score = 0
+    
+    elif res[1] == "Y": # i need to draw
+        shape = res[0]
+        outcome_score = 3
+    
+    else: # i need to win
+        if res[0] == "A":
+            shape = "B"
+        elif res[0] == "B":
+            shape = "C"
+        else:
+            shape = "A"
+        outcome_score = 6
+    
+    tot_score = outcome_score + opponent.index(shape) + 1
+    
+    return tot_score
 #
 #
 #
@@ -68,7 +90,10 @@ def main():
     tot = 0
 
     for rps in rounds:
-        tot += RPS_Result_Score(rps)
+        '''Part one'''
+        #tot += RPS_Result_Score(rps)
+        '''Part two'''
+        tot += RPS_Result_Score_mod(rps)
     
     print(tot)
 #

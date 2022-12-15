@@ -23,7 +23,6 @@ def Cycle():
     else:
         return False
 
-
 def main():
 
     x = 1
