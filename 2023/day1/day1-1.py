@@ -1,0 +1,1 @@
+with open(r"C:\Users\Lars Rikard\Documents\GitHub\adventofcode\2023\day1\day1_input.txt") as calibvals:
