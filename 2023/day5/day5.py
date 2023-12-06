@@ -23,8 +23,7 @@ def IsRecordBeat(race_data):
 
     ways_to_beat = 0
 
-    #for h in range(t0_start, avaliable_time):
-    for h in range(0, avaliable_time): #brute force for fun
+    for h in range(t0_start, avaliable_time):
         if CalcDist(avaliable_time, h) > record_dist:
             ways_to_beat += 1
     
