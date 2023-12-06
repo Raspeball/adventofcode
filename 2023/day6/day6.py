@@ -31,6 +31,7 @@ def IsRecordBeat(race_data):
     # count the number of points that are solutions > record_dist
     ways_to_beat = int(high - low)
 
+    # remnant from OG solution, where 2nd degree eq was not solved
     #for h in range(int(low), int(high)):
     #    if CalcDist(avaliable_time, h) > record_dist:
     #        ways_to_beat += 1
