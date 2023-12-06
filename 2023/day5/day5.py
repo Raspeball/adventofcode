@@ -1,5 +1,6 @@
 # Imports
 import time
+import numpy as np
 
 # Input day 5
 day5_input = [[41, 214], [96, 1789], [88, 1127], [94, 1055]]# [[time, distance]]
@@ -19,28 +20,38 @@ def IsRecordBeat(race_data):
     # and distance is the distance to beat
     avaliable_time, record_dist = [i for i in race_data]
 
-    t0_start = record_dist // avaliable_time
+    #t0_start = record_dist // avaliable_time #suboptimal??
+    if avaliable_time**2 < 4*record_dist:
+        raise Exception("No solutions")
+    else:
+        discr_root = np.ceil(0.5*np.sqrt(avaliable_time**2 - 4*record_dist))
+        low = np.floor(avaliable_time/2) - discr_root
+        high = low + 2*discr_root
 
     ways_to_beat = 0
 
-    for h in range(t0_start, avaliable_time):
+    for h in range(int(low), int(high)):
         if CalcDist(avaliable_time, h) > record_dist:
             ways_to_beat += 1
+        
     
     return ways_to_beat
 
 def main():
+    start = time.time()
     ### --- Part 1 --- ###
     #sol = 1
     #
     #for race_stats in day5_input:
-    #    sol = sol*IsRecordBeat(race_stats)
-    #
+    #    sol *= IsRecordBeat(race_stats)
+    
     ### --- --- ###
 
-    ### --- Part 2 --- ###
-    start = time.time()
+    ### --- Part 2 --- ####
     sol = IsRecordBeat(day5_input_p2)
+    
+    ### --- --- ###
+
     end = time.time()
     print(sol)
     print(f"Execution time (ms): {(end-start)*10**3}")
