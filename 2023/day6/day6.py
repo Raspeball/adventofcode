@@ -24,15 +24,16 @@ def IsRecordBeat(race_data):
     if avaliable_time**2 < 4*record_dist:
         raise Exception("No solutions")
     else:
-        discr_root = np.ceil(0.5*np.sqrt(avaliable_time**2 - 4*record_dist))
-        low = np.floor(avaliable_time/2) - discr_root
-        high = low + 2*discr_root
+        discr_root = np.sqrt(avaliable_time**2 - 4*record_dist)
+        low = np.ceil(0.5*(avaliable_time - discr_root))
+        high = np.ceil(0.5*(avaliable_time + discr_root))
+    
+    # count the number of points that are solutions > record_dist
+    ways_to_beat = int(high - low)
 
-    ways_to_beat = 0
-
-    for h in range(int(low), int(high)):
-        if CalcDist(avaliable_time, h) > record_dist:
-            ways_to_beat += 1
+    #for h in range(int(low), int(high)):
+    #    if CalcDist(avaliable_time, h) > record_dist:
+    #        ways_to_beat += 1
         
     
     return ways_to_beat
